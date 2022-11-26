@@ -1,4 +1,4 @@
-<? require_once "validador_acesso.php" ?> <!-- incluido o arquivo validador_acesso.php ao arquivo -->
+<? require_once "validador_acesso.php" ?>
 
 <?php
 
@@ -6,18 +6,18 @@
   $chamados = [];
 
   //abrir o arquivo.hd
-  $arquivo = fopen('../app_help_desk_arquivo_protegido/arquivo.hd','r'); //'arquivo.hd' primeiro parametro é o nome do arquivo e o segundo 'r' é o que deseja fazer o o arquivo, qualquer duvida consulta a documentação PHP e pesquisar por fopen - fopen abre o arquivo
+  $arquivo = fopen('../app_help_desk_arquivo_protegido/arquivo.hd','r'); 
 
   //percorre o array enquanto houver registro (linhas) a serem recuperados
-  while(!feof($arquivo)) { //testa pelo fim de um arquivo
+  while(!feof($arquivo)) { 
     //linhas
-    $registro = fgets($arquivo); //função para recuperar os registro contido dentro do arquivo até a ultima linha
-    $chamados[] = $registro; //inserindo os registro do arquivo.hd no array chamados
+    $registro = fgets($arquivo); 
+    $chamados[] = $registro;
   }
 
   //fechar o arquivo aberto
   fclose($arquivo);
-  //...
+  
 
 ?>
 
@@ -62,39 +62,38 @@
             
             <div class="card-body">
               
-              <? foreach($chamados as $chamado) { ?> <!--para percorrer o array -->
+              <? foreach($chamados as $chamado) { ?>
 
                 <?php
 
-                  $chamado_dados = explode('#', $chamado); //retornado um array
+                  $chamado_dados = explode('#', $chamado);
 
                   //
-                  if($_SESSION['perfil_id'] == 2) { //verificando se a session perfil_id é igual á 2
+                  if($_SESSION['perfil_id'] == 2) { 
                     
-                    //só vamos exibir o chamado que ele criou
-                    if($_SESSION['id'] != $chamado_dados[0]) { //verificando se a session id foi o mesmo usuario que fez o chamado
-                      continue; //para ignorar e ir para o proximo codigo
+                    
+                    if($_SESSION['id'] != $chamado_dados[0]) { 
+                      continue; 
                     } 
                   }
 
-                  if(count($chamado_dados) < 3) { //caso o array chamado_dados tenha menos de 3 elementos iremos pular para o proximo
+                  if(count($chamado_dados) < 3) { 
                     continue;
                   }
 
                 ?>
                 <div class="card mb-3 bg-light">
                   <div class="card-body">
-                    <h5 class="card-title"><?=$chamado_dados[1]?></h5> <!-- imprimindo PHP no html, o array chamado_dados e recuperando o elemento do indice 1-->
-                    <h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[2]?></h6> <!-- imprimindo PHP no html, o array chamado_dados e recuperando o elemento do indice 2-->
-                    <p class="card-text"><?=$chamado_dados[3]?></p> <!-- imprimindo PHP no html, o array chamado_dados e recuperando o elemento do indice 3-->
-
+                    <h5 class="card-title"><?=$chamado_dados[1]?></h5> 
+                    <h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[2]?></h6> 
+                    <p class="card-text"><?=$chamado_dados[3]?></p> 
                   </div>
                 </div>
-              <? } ?> <!--fechando o bloco de codigo do foreach-->
+              <? } ?> 
 
               <div class="row mt-5">
                 <div class="col-6">
-                  <a class="btn btn-lg btn-warning btn-block" href="home.php">Voltar</a> <!--criando link para voltar para home-->
+                  <a class="btn btn-lg btn-warning btn-block" href="home.php">Voltar</a> 
                 </div>
               </div>
             </div>

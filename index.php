@@ -34,7 +34,7 @@
             </div>
 
             <div class="card-body">
-              <form action="valida_login.php" method="POST"> <!-- destino submit do formulario (request)/ method="post, para não aparecer email e senha na url do browser" -->
+              <form action="valida_login.php" method="POST">
                 <div class="form-group">
                   <input name="email" type="email" class="form-control" placeholder="E-mail">
                 </div>
@@ -42,21 +42,16 @@
                   <input name="senha" type="password" class="form-control" placeholder="Senha">
                 </div>
 
-                <!-- para verificar a pagina inicial antes se já está com o erro de login ou não --> 
                 <? if(isset($_GET['login']) && $_GET['login'] == 'erro') { ?>
 
-                  <!--Esse trecho de codigo html só ira aparecer se der erro de autenticação-->
                   <div class="text-danger"> 
                     Usuário ou senha inválido(s)
                   </div> 
 
                 <? } ?>  
-
-                <!--esse erro é para o usuario não acessar as paginas protegidas sem fazer o login-->
-                <!-- para verificar a pagina inicial antes se já está com o erro2 de login ou não --> 
+ 
                 <? if(isset($_GET['login']) && $_GET['login'] == 'erro2') { ?> 
 
-                  <!--Esse trecho de codigo html só ira aparecer se der erro de autenticação-->
                   <div class="text-danger"> 
                     Faça login antes !
                   </div> 

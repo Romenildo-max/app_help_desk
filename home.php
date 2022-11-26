@@ -1,6 +1,4 @@
-<? require_once "validador_acesso.php"; //incluido o arquivo validador_acesso.php ao arquivo
-
-  //session_start(); //iniciando a sessão, porem não precisa porque o requere_once"validador_acesso.php" já tem essa função para iniciar a session.
+<? require_once "validador_acesso.php"; 
 
 ?>
 
@@ -45,12 +43,12 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-6 d-flex justify-content-center">
-                  <a href="abrir_chamado.php"> <!--acessando o abrir_chamado.php-->
+                  <a href="abrir_chamado.php">
                     <img src="formulario_abrir_chamado.png" width="70" height="70">
                   </a>
                 </div>
                 <div class="col-6 d-flex justify-content-center">
-                  <a href="consultar_chamado.php"> <!--acessando o consultar_chamado.php-->
+                  <a href="consultar_chamado.php">
                     <img src="formulario_consultar_chamado.png" width="70" height="70">
                   </a>
                 </div>
